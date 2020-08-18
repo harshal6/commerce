@@ -1,0 +1,14 @@
+uuid: 66bb5a0c-4ac2-4805-aa4c-dbab2330e874
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dispatcher
+  module:
+    - user
+id: user_remove_role_action.dispatcher
+label: 'Remove the Dispatcher role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dispatcher

@@ -1,0 +1,14 @@
+uuid: 19cf5196-a8eb-4d1f-8d47-9b614fa6cc3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.retailer
+  module:
+    - user
+id: user_add_role_action.retailer
+label: 'Add the Retailer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: retailer

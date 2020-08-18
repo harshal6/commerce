@@ -1,0 +1,13 @@
+uuid: 2f6e1810-66b6-4c14-a5ca-313f1a47a0a3
+langcode: en
+status: true
+dependencies: {  }
+id: retailer
+label: Retailer
+weight: 3
+is_admin: null
+permissions:
+  - 'create default commerce_order'
+  - 'delete default commerce_order'
+  - 'update default commerce_order'
+  - 'view default commerce_order'

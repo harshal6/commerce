@@ -1,0 +1,14 @@
+uuid: 29afcf43-2886-437b-8099-21c6bac2f6bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.retailer
+  module:
+    - user
+id: user_remove_role_action.retailer
+label: 'Remove the Retailer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: retailer

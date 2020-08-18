@@ -1,0 +1,38 @@
+custom_changes_dispatcher:
+  id: custom_changes_dispatcher
+  group: commerce_order
+  label: 'Dispatcher with Fulfillment and validation'
+  states:
+    draft:
+      label: Draft
+    validation:
+      label: Validation
+    fulfillment:
+      label: Fulfillment
+    dispatched:
+      label: Dispatched
+    completed:
+      label: Completed
+    canceled:
+      label: Canceled
+  transitions:
+    place:
+      label: 'Place order'
+      from: [draft]
+      to:   validation
+    validate:
+      label: 'Validate order'
+      from: [validation]
+      to:   fulfillment
+    fulfill:
+      label: 'Fulfill order'
+      from: [fulfillment]
+      to: dispatched
+    dispatched:
+      label: 'Delivered'
+      from: [dispatched]
+      to: completed
+    cancel:
+      label: 'Cancel order'
+      from: [draft, validation, fulfillment,dispatched]
+      to:   canceled

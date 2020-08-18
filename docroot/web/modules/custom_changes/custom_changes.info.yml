@@ -1,0 +1,6 @@
+name: Altering Order Workflow
+description: Alter Workflow of Order and add dispatch Status Change.
+package: Custom
+
+type: module
+core: 8.x

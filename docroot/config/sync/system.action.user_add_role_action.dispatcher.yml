@@ -1,0 +1,14 @@
+uuid: 87e155d9-324d-4cb2-8128-fa27209610fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dispatcher
+  module:
+    - user
+id: user_add_role_action.dispatcher
+label: 'Add the Dispatcher role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dispatcher

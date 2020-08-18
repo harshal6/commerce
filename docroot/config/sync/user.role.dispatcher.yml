@@ -1,0 +1,11 @@
+uuid: b3d34a14-ddf0-4dc1-9a00-adf55d50a2f6
+langcode: en
+status: true
+dependencies: {  }
+id: dispatcher
+label: Dispatcher
+weight: 4
+is_admin: null
+permissions:
+  - 'update default commerce_order'
+  - 'view commerce_order'
