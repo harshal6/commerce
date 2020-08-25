@@ -2,6 +2,9 @@ uuid: 958063ee-c940-44c6-be71-7241d1e32459
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.dispatcher
   module:
     - user
 _core:
@@ -189,6 +192,16 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          action_title: Action
+          include_exclude: include
+          selected_actions:
+            - user_add_role_action.retailer
+            - user_add_role_action.wholesaler
+            - user_block_user_action
+            - user_cancel_user_action
+            - user_remove_role_action.retailer
+            - user_remove_role_action.wholesaler
+            - user_unblock_user_action
           plugin_id: user_bulk_form
           entity_type: user
         name:
@@ -837,6 +850,50 @@ display:
             group_items: {  }
           plugin_id: numeric
           entity_type: user
+        roles_target_id_1:
+          id: roles_target_id_1
+          table: user__roles
+          field: roles_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not
+          value:
+            administrator: administrator
+            dispatcher: dispatcher
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
       sorts:
         created:
           id: created
@@ -882,6 +939,18 @@ display:
         groups:
           1: AND
       display_extenders: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<a class="button button-action button--primary button--small" href="/admin/people/create">Create User</a>'
+          plugin_id: text_custom
     cache_metadata:
       contexts:
         - 'languages:language_content'
@@ -906,6 +975,41 @@ display:
         menu_name: admin
         weight: -10
         context: ''
+      tab_options:
+        type: normal
+        title: People
+        description: 'Manage user accounts, roles, and permissions.'
+        menu_name: admin
+        weight: 0
+      defaults:
+        show_admin_links: false
+      display_extenders: {  }
+    cache_metadata:
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      max-age: 0
+      tags: {  }
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: Page
+    position: 1
+    display_options:
+      path: admin/commerce/orders/people
+      show_admin_links: false
+      menu:
+        type: tab
+        title: Users
+        description: 'Find and manage people interacting with your site.'
+        expanded: false
+        parent: ''
+        weight: 10
+        context: '0'
+        menu_name: admin
       tab_options:
         type: normal
         title: People

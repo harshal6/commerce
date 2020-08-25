@@ -1,0 +1,6 @@
+views.commerce_orders.page_1:
+  title: 'Categories'
+  description: 'Add Categories'
+  route_name: entity.taxonomy_term.canonical
+  base_route: views.commerce_orders.page_1
+  weight: 50

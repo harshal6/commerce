@@ -8,7 +8,7 @@ login:
     weight: 0
     allow_destination: false
   retailer:
-    redirect_url: /admin/products
+    redirect_url: /products
     weight: 0
     allow_destination: false
   dispatcher:

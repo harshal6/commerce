@@ -701,7 +701,18 @@ display:
           plugin_id: taxonomy_index_tid
       sorts: {  }
       title: Products
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: "<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/composition/overview\">Add Composition</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/brand_name/overview\">Add Company</a>"
+          plugin_id: text_custom
       footer: {  }
       empty:
         area_text_custom:
@@ -747,7 +758,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/commerce/products
+      path: admin/commerce/orders/products
+      menu:
+        type: tab
+        title: Products
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: admin
     cache_metadata:
       contexts:
         - 'languages:language_content'

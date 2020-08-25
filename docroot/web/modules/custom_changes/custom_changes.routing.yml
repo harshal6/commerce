@@ -4,3 +4,9 @@ custom_changes.account_edit_redirect:
     _controller: '\Drupal\custom_changes\Controller\AccountEditRedirectController::redirect_to_account_edit'
   requirements:
     _role: 'authenticated'
+custom_changes.wholesaler_taxonomy:
+  path: '/admin/commerce/orders/taxonomy'
+  defaults:
+    _controller: '\Drupal\custom_changes\Controller\CustomTaxonomyView::content'
+  requirements:
+    _role: 'authenticated'

@@ -1,0 +1,5 @@
+services:
+  custom_changes.route_subscriber:
+    class: Drupal\custom_changes\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
