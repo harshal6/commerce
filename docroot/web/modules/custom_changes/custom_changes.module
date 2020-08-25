@@ -1,0 +1,24 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
+
+//function custom_changes_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+//// No opinion.
+//    drupal_set_message($operation . '-'. $entity->bundle() .'-'. $entity->id() .'-'. $entity->getEntityTypeId());
+//    if ($entity->getEntityTypeId() == 'commerce_order' && $entity->bundle() == 'default') {
+//      if ($operation == 'viewed' || $operation == 'update') {
+//        return AccessResult::allowed();
+//      }
+//    }
+//    return AccessResult::neutral();
+//}
+
+
+function custom_changes_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id) {
+
+  }
+
+}

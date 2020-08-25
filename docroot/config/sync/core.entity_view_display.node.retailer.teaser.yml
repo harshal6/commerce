@@ -1,0 +1,44 @@
+uuid: bf02d78a-ade2-4ef2-9a19-5569004b6d77
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.retailer.body
+    - field.field.node.retailer.field_client_address
+    - field.field.node.retailer.field_client_drug_license_no
+    - field.field.node.retailer.field_client_gst
+    - field.field.node.retailer.field_client_id
+    - field.field.node.retailer.field_client_name
+    - field.field.node.retailer.field_client_representative
+    - field.field.node.retailer.field_client_route
+    - node.type.retailer
+  module:
+    - text
+    - user
+id: node.retailer.teaser
+targetEntityType: node
+bundle: retailer
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_client_address: true
+  field_client_drug_license_no: true
+  field_client_gst: true
+  field_client_id: true
+  field_client_name: true
+  field_client_representative: true
+  field_client_route: true

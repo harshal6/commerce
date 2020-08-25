@@ -1,0 +1,91 @@
+uuid: 69bc72e2-90fe-480e-b657-a11efc2a8bf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.retailer.body
+    - field.field.node.retailer.field_client_address
+    - field.field.node.retailer.field_client_drug_license_no
+    - field.field.node.retailer.field_client_gst
+    - field.field.node.retailer.field_client_id
+    - field.field.node.retailer.field_client_name
+    - field.field.node.retailer.field_client_representative
+    - field.field.node.retailer.field_client_route
+    - node.type.retailer
+  module:
+    - address
+    - text
+    - user
+id: node.retailer.default
+targetEntityType: node
+bundle: retailer
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_client_address:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_client_drug_license_no:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_gst:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_id:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_name:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_representative:
+    weight: 107
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_route:
+    weight: 108
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

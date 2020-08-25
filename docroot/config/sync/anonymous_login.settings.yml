@@ -1,0 +1,5 @@
+login_path: /node/2
+_core:
+  default_config_hash: ZKVq7lpyGFQf-SCuj_Ng2yLPD24rKHxz-TzGQxBjLl4
+paths: "*\r\n~/user/password"
+message: ''

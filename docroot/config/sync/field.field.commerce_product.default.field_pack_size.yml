@@ -1,0 +1,23 @@
+uuid: 1e2690ab-ffe6-49de-a782-f4cd7501b1f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_pack_size
+id: commerce_product.default.field_pack_size
+field_name: field_pack_size
+entity_type: commerce_product
+bundle: default
+label: 'Pack Size'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 20
+  prefix: ''
+  suffix: ''
+field_type: integer

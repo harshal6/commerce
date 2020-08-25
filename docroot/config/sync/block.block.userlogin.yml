@@ -1,0 +1,26 @@
+uuid: 56809f80-f469-48c7-b9f5-00377f076276
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - belgrade
+id: userlogin
+theme: belgrade
+region: content
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/2
+    negate: false
+    context_mapping: {  }

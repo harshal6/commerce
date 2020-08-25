@@ -1,0 +1,44 @@
+uuid: 7a0d032a-1b68-4732-8c46-0eef1742a39e
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - core.entity_view_mode.commerce_order.compact_order_details
+  module:
+    - commerce_order
+    - entity_reference_revisions
+id: commerce_order.default.compact_order_details
+targetEntityType: commerce_order
+bundle: default
+mode: compact_order_details
+content:
+  billing_profile:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+  order_items:
+    type: commerce_order_item_table
+    weight: 1
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  changed: true
+  completed: true
+  ip_address: true
+  mail: true
+  order_number: true
+  placed: true
+  print: true
+  state: true
+  store_id: true
+  total_paid: true
+  total_price: true
+  uid: true

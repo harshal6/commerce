@@ -1,0 +1,20 @@
+uuid: ee2d21d9-1276-4e8c-9f5a-d042b37c88fa
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product.field_stock
+field_name: field_stock
+entity_type: commerce_product
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

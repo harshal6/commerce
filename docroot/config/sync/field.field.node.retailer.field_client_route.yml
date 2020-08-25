@@ -1,0 +1,19 @@
+uuid: 09c54495-a3fb-454f-b5f6-b3b7eadb047e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_client_route
+    - node.type.retailer
+id: node.retailer.field_client_route
+field_name: field_client_route
+entity_type: node
+bundle: retailer
+label: 'Client Route'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

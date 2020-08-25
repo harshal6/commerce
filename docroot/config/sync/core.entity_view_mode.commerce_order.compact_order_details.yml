@@ -1,0 +1,10 @@
+uuid: b059c611-79a3-4d94-9629-a23a574db833
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+id: commerce_order.compact_order_details
+label: 'Compact Order Details'
+targetEntityType: commerce_order
+cache: true

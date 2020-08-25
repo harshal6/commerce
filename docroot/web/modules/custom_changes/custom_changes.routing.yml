@@ -1,0 +1,6 @@
+custom_changes.account_edit_redirect:
+  path: '/user/me/edit'
+  defaults:
+    _controller: '\Drupal\custom_changes\Controller\AccountEditRedirectController::redirect_to_account_edit'
+  requirements:
+    _role: 'authenticated'

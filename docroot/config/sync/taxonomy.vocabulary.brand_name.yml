@@ -1,0 +1,8 @@
+uuid: 71cf4415-818a-4d61-86e8-7883d133eaf6
+langcode: en
+status: true
+dependencies: {  }
+name: Company
+vid: brand_name
+description: ''
+weight: 0

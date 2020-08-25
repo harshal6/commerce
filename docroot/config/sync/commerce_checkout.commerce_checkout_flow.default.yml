@@ -1,9 +1,7 @@
-uuid: 5d285184-2e27-43d4-8da1-25613189a0b0
+uuid: 39aec897-cf30-470f-8fb1-610ecf79363f
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: D34BCgbJ5zXYuNz6x0XsDBSL22XQjtHLbjJU2mlBvoA
 id: default
 label: Default
 plugin: multistep_default
@@ -15,20 +13,23 @@ configuration:
       allow_registration: false
       step: login
       weight: 0
+    completion_register:
+      step: complete
+      weight: 3
+    review:
+      step: _disabled
+      weight: 6
     contact_information:
-      double_entry: true
+      double_entry: false
       step: order_information
       weight: 1
     billing_information:
       step: order_information
       weight: 2
-    review:
-      step: review
-      weight: 3
+    order_summary:
+      view: ''
+      step: _sidebar
+      weight: 5
     completion_message:
       step: complete
       weight: 4
-    order_summary:
-      view: null
-      step: _sidebar
-      weight: 5

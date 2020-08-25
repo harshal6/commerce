@@ -5,6 +5,11 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.default
     - field.field.commerce_product.default.body
+    - field.field.commerce_product.default.field_brand_name
+    - field.field.commerce_product.default.field_composition
+    - field.field.commerce_product.default.field_pack_size
+    - field.field.commerce_product.default.field_stock
+    - field.field.commerce_product.default.field_supplier
   module:
     - commerce_product
     - text
@@ -17,30 +22,63 @@ mode: default
 content:
   body:
     type: text_default
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_brand_name:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_composition:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_pack_size:
+    weight: 6
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_stock:
+    weight: 7
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
   variations:
     type: commerce_add_to_cart
-    weight: 1
+    weight: 2
     label: hidden
     settings:
-      default_quantity: '1'
       combine: true
-      show_quantity: false
     third_party_settings: {  }
     region: content
 hidden:
   created: true
+  field_supplier: true
   stores: true
   uid: true

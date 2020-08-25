@@ -24,9 +24,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  quantity:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: Quantity
+    third_party_settings: {  }
 hidden:
   created: true
-  quantity: true
   status: true
   uid: true
   unit_price: true

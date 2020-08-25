@@ -7,7 +7,10 @@ label: Retailer
 weight: 3
 is_admin: null
 permissions:
-  - 'create default commerce_order'
-  - 'delete default commerce_order'
-  - 'update default commerce_order'
+  - 'view commerce_product'
+  - 'view commerce_product_attribute'
+  - 'view commerce_store'
   - 'view default commerce_order'
+  - 'view own commerce_order'
+  - 'view printer friendly versions'
+  - 'view the administration theme'

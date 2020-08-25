@@ -32,14 +32,25 @@
         "ext-curl": "*",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
+        "drupal/anonymous_login": "^2.0",
         "drupal/belgrade": "^1.0@beta",
+        "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/commerce": "^2.0",
+        "drupal/commerce_print": "^1.0@alpha",
+        "drupal/commerce_simple_stock": "^1.0",
+        "drupal/commerce_stock": "1.x-dev",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.8.0",
         "drupal/core-composer-scaffold": "^8.8.0",
+        "drupal/entity_reference_exposed_filters": "^1.0@alpha",
+        "drupal/login_redirect_per_role": "^1.7",
+        "drupal/menu_per_role": "1.x-dev",
+        "drupal/page_specific_class": "^2.0",
+        "drupal/printable": "^1.1",
         "drupal/search_api": "^1.0",
         "drupal/swiftmailer": "^2.0",
         "drupal/token": "^1.0",
+        "drupal/views_data_export": "^1.0",
         "drupalcommerce/commerce_base": "dev-8.x-1.x",
         "oomphinc/composer-installers-extender": "^1.1",
         "webflo/drupal-finder": "^1.0.0",
@@ -75,6 +86,10 @@
         ]
     },
     "extra": {
+        "enable-patching": true,
+        "drupal/commerce": {
+          "The Calculated price formatter must not show up for order item fields on the views ui": "https://www.drupal.org/files/issues/2019-10-31/commerce-3088905-calculated_field_views-8.patch"
+        },
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
             "drupal/core": "-p2"

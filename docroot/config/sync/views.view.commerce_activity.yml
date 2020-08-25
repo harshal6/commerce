@@ -2,6 +2,9 @@ uuid: b5646352-67c7-4c4e-aff5-a0c74e14e52d
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.wholesaler
   module:
     - commerce_log
     - user
@@ -22,8 +25,11 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            wholesaler: wholesaler
       cache:
         type: tag
         options: {  }
@@ -393,6 +399,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   block_1:
     display_plugin: block
@@ -408,4 +415,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }

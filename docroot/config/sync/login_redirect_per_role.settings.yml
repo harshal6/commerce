@@ -1,0 +1,42 @@
+login:
+  authenticated:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  administrator:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  retailer:
+    redirect_url: /admin/products
+    weight: 0
+    allow_destination: false
+  dispatcher:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  wholesaler:
+    redirect_url: /admin/commerce/orders
+    weight: 0
+    allow_destination: false
+logout:
+  authenticated:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  administrator:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  retailer:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  dispatcher:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false
+  wholesaler:
+    redirect_url: ''
+    weight: 0
+    allow_destination: false

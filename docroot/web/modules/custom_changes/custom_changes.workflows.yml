@@ -6,7 +6,7 @@ custom_changes_dispatcher:
     draft:
       label: Draft
     validation:
-      label: Validation
+      label: Pending
     fulfillment:
       label: Fulfillment
     dispatched:
@@ -21,7 +21,7 @@ custom_changes_dispatcher:
       from: [draft]
       to:   validation
     validate:
-      label: 'Validate order'
+      label: 'Confirm order'
       from: [validation]
       to:   fulfillment
     fulfill:

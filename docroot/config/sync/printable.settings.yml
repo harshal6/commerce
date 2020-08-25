@@ -1,0 +1,44 @@
+printable_entities:
+  comment: comment
+  commerce_order: commerce_order
+  node: node
+  user: user
+  block: '0'
+  block_content: '0'
+  commerce_log: '0'
+  commerce_order_item: '0'
+  commerce_payment_method: '0'
+  commerce_payment: '0'
+  commerce_product_variation: '0'
+  commerce_product: '0'
+  commerce_product_attribute_value: '0'
+  commerce_promotion: '0'
+  commerce_promotion_coupon: '0'
+  commerce_store: '0'
+  contact_message: '0'
+  file: '0'
+  menu_link_content: '0'
+  path_alias: '0'
+  profile: '0'
+  taxonomy_term: '0'
+  tour: '0'
+open_target_blank: true
+css_include: ''
+extract_links: '0'
+save_pdf: false
+pdf_tool: ''
+paper_size: A4
+page_orientation: Portrait
+path_to_binary: ''
+pdf_location: ''
+send_to_printer: false
+close_window: false
+list_attribute: false
+printable_print_link_locations:
+  - node
+printable_pdf_link_locations:
+  - ''
+print_pdf_use_xvfb_run: false
+path_to_xvfb_run: ''
+_core:
+  default_config_hash: '--64pTFtZ_ATDgWZMzTVtdhWcYJcq7fvQT9fZn3UCOU'

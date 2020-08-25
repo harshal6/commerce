@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - commerce_cart
+    - user
   theme:
     - belgrade
 _core:
@@ -21,4 +22,11 @@ settings:
   label_display: '0'
   dropdown: true
   item_text: items
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

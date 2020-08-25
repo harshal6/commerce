@@ -1,0 +1,19 @@
+uuid: 9b3857c0-141b-4cf4-8cf0-62d587eeafb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_client_name
+    - node.type.retailer
+id: node.retailer.field_client_name
+field_name: field_client_name
+entity_type: node
+bundle: retailer
+label: 'Client Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

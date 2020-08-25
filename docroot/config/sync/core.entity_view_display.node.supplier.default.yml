@@ -1,0 +1,28 @@
+uuid: 13750478-8161-4a94-b38a-9c66355ba5be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.supplier.body
+    - node.type.supplier
+  module:
+    - text
+    - user
+id: node.supplier.default
+targetEntityType: node
+bundle: supplier
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

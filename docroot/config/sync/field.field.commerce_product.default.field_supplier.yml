@@ -1,0 +1,29 @@
+uuid: d2106b13-dffc-485f-9163-d589b2f14b58
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.default
+    - field.storage.commerce_product.field_supplier
+    - node.type.supplier
+id: commerce_product.default.field_supplier
+field_name: field_supplier
+entity_type: commerce_product
+bundle: default
+label: Supplier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      supplier: supplier
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
