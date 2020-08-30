@@ -1,0 +1,14 @@
+uuid: 86d65d56-35eb-4677-b4dc-af15dc1d5b3e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: igdv1CXBTq9vh-ONhQ2SFkVhr3bdfRC6nP1Uubdx-L0
+id: supplier_products
+label: 'Supplier Products'
+description: ''
+variationType: default
+multipleVariations: false
+injectVariationFields: true
+traits: {  }
+locked: false

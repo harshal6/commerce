@@ -1,16 +1,16 @@
-uuid: ee2d21d9-1276-4e8c-9f5a-d042b37c88fa
+uuid: 91ae90ad-83e3-4619-9d50-088ead124668
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-id: commerce_product.field_stock
-field_name: field_stock
-entity_type: commerce_product
-type: integer
+    - node
+id: node.field_product
+field_name: field_product
+entity_type: node
+type: entity_reference
 settings:
-  unsigned: false
-  size: normal
+  target_type: commerce_product_variation
 module: core
 locked: false
 cardinality: 1

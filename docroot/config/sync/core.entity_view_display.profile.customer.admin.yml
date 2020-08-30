@@ -5,6 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.profile.admin
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_client_drug_license_number
+    - field.field.profile.customer.field_client_gst
+    - field.field.profile.customer.field_client_id
+    - field.field.profile.customer.field_client_license_drug_no_2
+    - field.field.profile.customer.field_client_name
+    - field.field.profile.customer.field_client_representative
+    - field.field.profile.customer.field_client_route
     - field.field.profile.customer.tax_number
     - profile.type.customer
   enforced:
@@ -35,4 +42,11 @@ content:
     label: above
     third_party_settings: {  }
     region: content
-hidden: {  }
+hidden:
+  field_client_drug_license_number: true
+  field_client_gst: true
+  field_client_id: true
+  field_client_license_drug_no_2: true
+  field_client_name: true
+  field_client_representative: true
+  field_client_route: true

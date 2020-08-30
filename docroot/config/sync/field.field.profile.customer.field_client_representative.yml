@@ -1,0 +1,19 @@
+uuid: ba72d6a0-df51-47f4-9314-0602acdaf4a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_client_representative
+    - profile.type.customer
+id: profile.customer.field_client_representative
+field_name: field_client_representative
+entity_type: profile
+bundle: customer
+label: 'Client Representative'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

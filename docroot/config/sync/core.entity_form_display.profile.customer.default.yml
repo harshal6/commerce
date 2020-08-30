@@ -4,6 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_client_drug_license_number
+    - field.field.profile.customer.field_client_gst
+    - field.field.profile.customer.field_client_id
+    - field.field.profile.customer.field_client_license_drug_no_2
+    - field.field.profile.customer.field_client_name
+    - field.field.profile.customer.field_client_representative
+    - field.field.profile.customer.field_client_route
     - field.field.profile.customer.tax_number
     - profile.type.customer
   enforced:
@@ -23,6 +30,62 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_client_drug_license_number:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_client_gst:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_client_id:
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_client_license_drug_no_2:
+    weight: 30
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_client_name:
+    weight: 27
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_client_representative:
+    weight: 31
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_client_route:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   is_default: true

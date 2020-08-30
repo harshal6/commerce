@@ -42,3 +42,4 @@ hidden:
   field_client_name: true
   field_client_representative: true
   field_client_route: true
+  langcode: true

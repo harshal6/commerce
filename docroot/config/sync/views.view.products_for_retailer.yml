@@ -3,16 +3,29 @@ langcode: en
 status: true
 dependencies:
   config:
+    - commerce_product.commerce_product_type.default
+    - commerce_product.commerce_product_type.supplier_products
     - field.storage.commerce_product.field_brand_name
+    - field.storage.commerce_product.field_categories
     - field.storage.commerce_product.field_composition
+    - field.storage.commerce_product.field_product_images
+    - image.style.medium
     - taxonomy.vocabulary.brand_name
+    - taxonomy.vocabulary.categories
+    - taxonomy.vocabulary.composition
     - user.role.administrator
+    - user.role.authenticated
     - user.role.retailer
     - user.role.wholesaler
   module:
     - better_exposed_filters
     - commerce
+    - commerce_price
     - commerce_product
+    - csv_serialization
+    - image
+    - rest
+    - serialization
     - taxonomy
     - user
 _core:
@@ -170,6 +183,70 @@ display:
       row:
         type: fields
       fields:
+        field_product_images:
+          id: field_product_images
+          table: commerce_product__field_product_images
+          field: field_product_images
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Image
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: medium
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         title:
           id: title
           table: commerce_product_field_data
@@ -427,6 +504,135 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        price__number:
+          id: price__number
+          table: commerce_product_variation_field_data
+          field: price__number
+          relationship: variations_target_id
+          group_type: group
+          admin_label: ''
+          label: 'Unit Price'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: number
+          type: commerce_price_default
+          settings:
+            strip_trailing_zeroes: false
+            currency_display: symbol
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: commerce_product_variation
+          entity_field: price
+          plugin_id: field
+        field_categories:
+          id: field_categories
+          table: commerce_product__field_categories
+          field: field_categories
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Categories
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         variations_target_id:
           id: variations_target_id
           table: commerce_product__variations
@@ -434,7 +640,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Add to Cart'
+          label: Variations
           exclude: false
           alter:
             alter_text: false
@@ -493,50 +699,6 @@ display:
           entity_field: variations
           plugin_id: field
       filters:
-        type:
-          id: type
-          table: commerce_product_field_data
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: type_op
-            operator_limit_selection: false
-            label: Type
-            description: ''
-            use_operator: false
-            operator: type_op
-            identifier: type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-            hide_single_bundle: true
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: commerce_product
-          entity_field: type
-          plugin_id: commerce_entity_bundle
         title:
           id: title
           table: commerce_product_field_data
@@ -550,7 +712,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: 'Brand Name'
+            label: Title
             description: ''
             use_operator: false
             operator: title_op
@@ -566,6 +728,7 @@ display:
               administrator: '0'
               retailer: '0'
               dispatcher: '0'
+              wholesaler: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -582,6 +745,106 @@ display:
           entity_type: commerce_product
           entity_field: title
           plugin_id: string
+        field_categories_target_id:
+          id: field_categories_target_id
+          table: commerce_product__field_categories
+          field: field_categories_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_categories_target_id_op
+            label: Categories
+            description: ''
+            use_operator: false
+            operator: field_categories_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_categories_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              retailer: '0'
+              dispatcher: '0'
+              wholesaler: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: categories
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_composition_target_id:
+          id: field_composition_target_id
+          table: commerce_product__field_composition
+          field: field_composition_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_composition_target_id_op
+            label: Composition
+            description: ''
+            use_operator: false
+            operator: field_composition_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_composition_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              retailer: '0'
+              dispatcher: '0'
+              wholesaler: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: composition
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
         field_brand_name_target_id:
           id: field_brand_name_target_id
           table: commerce_product__field_brand_name
@@ -611,6 +874,7 @@ display:
               administrator: '0'
               retailer: '0'
               dispatcher: '0'
+              wholesaler: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -631,6 +895,314 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        type:
+          id: type
+          table: commerce_product_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            default: default
+          group: 1
+          exposed: false
+          expose:
+            operator_id: type_op
+            label: Type
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+            hide_single_bundle: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: commerce_product
+          entity_field: type
+          plugin_id: commerce_entity_bundle
+      sorts: {  }
+      title: Products
+      header: {  }
+      footer: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'No products available.'
+          plugin_id: text_custom
+      relationships:
+        variations_target_id:
+          id: variations_target_id
+          table: commerce_product__variations
+          field: variations_target_id
+          relationship: none
+          group_type: group
+          admin_label: 'Product variation'
+          required: false
+          entity_type: commerce_product
+          entity_field: variations
+          plugin_id: standard
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.roles
+      cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.commerce_product.field_brand_name'
+        - 'config:field.storage.commerce_product.field_categories'
+        - 'config:field.storage.commerce_product.field_composition'
+        - 'config:field.storage.commerce_product.field_product_images'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: products
+      menu:
+        type: tab
+        title: Products
+        description: ''
+        expanded: false
+        parent: system.admin
+        weight: 0
+        context: '0'
+        menu_name: admin
+    cache_metadata:
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.roles
+      cacheable: false
+      max-age: -1
+      tags:
+        - 'config:field.storage.commerce_product.field_brand_name'
+        - 'config:field.storage.commerce_product.field_categories'
+        - 'config:field.storage.commerce_product.field_composition'
+        - 'config:field.storage.commerce_product.field_product_images'
+  rest_export_1:
+    display_plugin: rest_export
+    id: rest_export_1
+    display_title: 'REST export'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: products/csv
+      style:
+        type: serializer
+        options:
+          formats:
+            csv: csv
+      pager:
+        type: some
+        options:
+          items_per_page: 0
+          offset: 0
+      auth:
+        - cookie
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+            administrator: administrator
+            wholesaler: wholesaler
+      defaults:
+        access: false
+        fields: false
+      row:
+        type: data_field
+        options:
+          field_options:
+            title:
+              alias: title
+              raw_output: true
+      fields:
+        title:
+          id: title
+          table: commerce_product_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Products
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: null
+          entity_field: title
+          plugin_id: field
+    cache_metadata:
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user
+        - user.roles
+      cacheable: false
+      max-age: -1
+      tags: {  }
+  rest_export_2:
+    display_plugin: rest_export
+    id: rest_export_2
+    display_title: 'REST export'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: supplier-products/csv
+      style:
+        type: serializer
+        options:
+          formats:
+            csv: csv
+      pager:
+        type: none
+        options:
+          offset: 0
+      auth:
+        - cookie
+      filters:
+        type:
+          id: type
+          table: commerce_product_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            all: all
+            default: default
+            supplier_products: supplier_products
+          group: 1
+          exposed: false
+          expose:
+            operator_id: type_op
+            label: Type
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+            hide_single_bundle: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: commerce_product
+          entity_field: type
+          plugin_id: commerce_entity_bundle
         status:
           id: status
           table: commerce_product_field_data
@@ -671,66 +1243,53 @@ display:
           entity_type: commerce_product
           entity_field: status
           plugin_id: boolean
-      sorts: {  }
-      title: Products
-      header: {  }
-      footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'No products available.'
-          plugin_id: text_custom
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
-      use_ajax: false
+      defaults:
+        filters: false
+        filter_groups: false
+        access: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      access:
+        type: perm
+        options:
+          perm: 'view default commerce_product'
+      row:
+        type: data_field
+        options:
+          field_options:
+            field_product_images:
+              alias: ''
+              raw_output: false
+            title:
+              alias: ''
+              raw_output: false
+            type:
+              alias: ''
+              raw_output: false
+            field_brand_name:
+              alias: ''
+              raw_output: false
+            field_composition:
+              alias: ''
+              raw_output: false
+            price__number:
+              alias: ''
+              raw_output: false
+            field_categories:
+              alias: ''
+              raw_output: false
     cache_metadata:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user
-        - user.roles
+        - request_format
+        - user.permissions
       cacheable: false
       max-age: -1
       tags:
         - 'config:field.storage.commerce_product.field_brand_name'
+        - 'config:field.storage.commerce_product.field_categories'
         - 'config:field.storage.commerce_product.field_composition'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: products
-      menu:
-        type: tab
-        title: Products
-        description: ''
-        expanded: false
-        parent: system.admin
-        weight: 0
-        context: '0'
-        menu_name: admin
-    cache_metadata:
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user
-        - user.roles
-      cacheable: false
-      max-age: -1
-      tags:
-        - 'config:field.storage.commerce_product.field_brand_name'
-        - 'config:field.storage.commerce_product.field_composition'
+        - 'config:field.storage.commerce_product.field_product_images'

@@ -931,7 +931,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: ''
+          content: "<a class=\"button button-action button--primary button--small\" href=\"/order-csv\">Export All Orders to CSV</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/order-csv/pending\">Export Pending Orders to CSV</a>\r\n"
           plugin_id: text_custom
       footer: {  }
       empty:

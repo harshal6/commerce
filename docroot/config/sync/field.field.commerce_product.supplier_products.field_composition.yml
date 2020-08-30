@@ -1,0 +1,29 @@
+uuid: f4447fbf-afaa-4a69-9d58-b1dd93ac2f1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.supplier_products
+    - field.storage.commerce_product.field_composition
+    - taxonomy.vocabulary.composition
+id: commerce_product.supplier_products.field_composition
+field_name: field_composition
+entity_type: commerce_product
+bundle: supplier_products
+label: Composition
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      composition: composition
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

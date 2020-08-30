@@ -4,8 +4,12 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
+    - field.field.commerce_product_variation.default.field_pack_size
+    - field.field.commerce_product_variation.default.field_stock
+    - field.field.commerce_product_variation.default.field_type
   module:
     - commerce_price
+    - commerce_stock_field
 _core:
   default_config_hash: dDLA40Axom_QFA79EWUpe_bWXWE8I_7MijzPkslbVfA
 id: commerce_product_variation.default.default
@@ -13,6 +17,41 @@ targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
+  commerce_stock_always_in_stock:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_pack_size:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_stock:
+    weight: 13
+    settings:
+      custom_transaction_note: false
+      default_transaction_note: 'Transaction issued by stock level field.'
+      step: '1'
+    third_party_settings: {  }
+    type: commerce_stock_level_simple_transaction
+    region: content
+  field_type:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   list_price:
     type: commerce_list_price
     weight: -1

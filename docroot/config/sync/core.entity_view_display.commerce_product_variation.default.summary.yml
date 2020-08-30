@@ -5,6 +5,9 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.summary
+    - field.field.commerce_product_variation.default.field_pack_size
+    - field.field.commerce_product_variation.default.field_stock
+    - field.field.commerce_product_variation.default.field_type
   enforced:
     module:
       - commerce_checkout
@@ -43,5 +46,9 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_pack_size: true
+  field_stock: true
+  field_type: true
+  langcode: true
   price: true
   sku: true

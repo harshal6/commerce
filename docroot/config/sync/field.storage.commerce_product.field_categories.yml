@@ -1,19 +1,19 @@
-uuid: 538f1acc-4391-499b-94e1-e956c0170eaa
+uuid: 8f10d84a-2512-4f70-aaff-3555b1fe077c
 langcode: en
 status: true
 dependencies:
   module:
     - commerce_product
-id: commerce_product.field_pack_size
-field_name: field_pack_size
+    - taxonomy
+id: commerce_product.field_categories
+field_name: field_categories
 entity_type: commerce_product
-type: integer
+type: entity_reference
 settings:
-  unsigned: false
-  size: normal
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

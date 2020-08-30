@@ -17,22 +17,25 @@ label: Address
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    country_code: IN
+    langcode: ''
+    given_name: ''
+    family_name: ''
+    organization: ''
+    address_line1: ''
+    address_line2: ''
+    locality: ''
+    postal_code: ''
+    administrative_area: ''
+    additional_name: null
+    sorting_code: null
+    dependent_locality: null
 default_value_callback: ''
 settings:
   available_countries: {  }
-  fields:
-    administrativeArea: administrativeArea
-    locality: locality
-    dependentLocality: dependentLocality
-    postalCode: postalCode
-    sortingCode: sortingCode
-    addressLine1: addressLine1
-    addressLine2: addressLine2
-    organization: organization
-    givenName: givenName
-    additionalName: additionalName
-    familyName: familyName
   langcode_override: ''
   field_overrides: {  }
+  fields: {  }
 field_type: address

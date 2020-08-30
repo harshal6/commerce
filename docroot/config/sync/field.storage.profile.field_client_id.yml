@@ -1,0 +1,21 @@
+uuid: bfb4288a-ad95-467e-8d15-20ef258b0d83
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+id: profile.field_client_id
+field_name: field_client_id
+entity_type: profile
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

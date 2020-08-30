@@ -1,0 +1,24 @@
+uuid: 05a7d32e-de54-4435-b5b6-b830ad4f34b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_client_id
+    - profile.type.customer
+  module:
+    - profile
+third_party_settings:
+  profile:
+    profile_private: true
+id: profile.customer.field_client_id
+field_name: field_client_id
+entity_type: profile
+bundle: customer
+label: 'Client ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

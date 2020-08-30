@@ -4,6 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_client_drug_license_number
+    - field.field.profile.customer.field_client_gst
+    - field.field.profile.customer.field_client_id
+    - field.field.profile.customer.field_client_license_drug_no_2
+    - field.field.profile.customer.field_client_name
+    - field.field.profile.customer.field_client_representative
+    - field.field.profile.customer.field_client_route
     - field.field.profile.customer.tax_number
     - profile.type.customer
   enforced:
@@ -25,6 +32,62 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_client_drug_license_number:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_gst:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_id:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_license_drug_no_2:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_name:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_representative:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_client_route:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   tax_number:
     type: commerce_tax_number_default

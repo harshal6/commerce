@@ -1,0 +1,10 @@
+uuid: 251fefb5-7879-4823-b885-47e25fe02bc4
+langcode: en
+status: true
+dependencies: {  }
+id: new
+label: New
+orderItemType: default
+generateTitle: true
+traits: {  }
+locked: false
