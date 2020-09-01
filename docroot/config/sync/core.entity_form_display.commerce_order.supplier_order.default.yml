@@ -1,0 +1,66 @@
+uuid: 81786b55-191a-4992-8dd4-5057ba038eee
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.supplier_order
+    - field.field.commerce_order.supplier_order.field_comment
+  module:
+    - commerce_order
+    - inline_entity_form
+id: commerce_order.supplier_order.default
+targetEntityType: commerce_order
+bundle: supplier_order
+mode: default
+content:
+  adjustments:
+    type: commerce_adjustment_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  billing_profile:
+    type: commerce_billing_profile
+    weight: 0
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  cart:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 20
+    region: content
+    third_party_settings: {  }
+  field_comment:
+    weight: 21
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  order_items:
+    type: inline_entity_form_complex
+    weight: 0
+    settings:
+      override_labels: true
+      label_singular: 'order item'
+      label_plural: 'order items'
+      form_mode: default
+      revision: false
+      collapsible: false
+      collapsed: false
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+    region: content
+    third_party_settings: {  }
+hidden:
+  ip_address: true
+  mail: true
+  order_number: true
+  state: true
+  store_id: true
+  uid: true

@@ -8,4 +8,3 @@ weight: 4
 is_admin: null
 permissions:
   - 'update default commerce_order'
-  - 'view commerce_order'

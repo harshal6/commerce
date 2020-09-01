@@ -51,7 +51,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_categories:
-    weight: 12
+    weight: 13
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -61,7 +61,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_composition:
-    weight: 10
+    weight: 11
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -71,13 +71,23 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_product_images:
-    weight: 11
+    weight: 12
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
+  field_supplier:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 2
@@ -132,5 +142,4 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-hidden:
-  field_supplier: true
+hidden: {  }

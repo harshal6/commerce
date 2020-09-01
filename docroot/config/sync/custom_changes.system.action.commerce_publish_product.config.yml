@@ -1,0 +1,13 @@
+target: system.action.commerce_publish_product
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_publish_product
+label: 'Activate product'
+type: commerce_product
+plugin: commerce_publish_product
+configuration: {  }
+_core:
+  default_config_hash: z0HtpkjjzWn4Jrl0jbXHPxdKT_IgZV0JvRNpy7HBvO8
