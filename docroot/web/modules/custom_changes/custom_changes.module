@@ -4,6 +4,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\commerce_order\Entity\Order;
+
 //function custom_changes_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
 //// No opinion.
 //    drupal_set_message($operation . '-'. $entity->bundle() .'-'. $entity->id() .'-'. $entity->getEntityTypeId());
@@ -25,5 +27,32 @@ function custom_changes_form_alter(&$form, $form_state, $form_id) {
      $response->send();
    }
   }
+}
 
+function custom_changes_entity_update(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'commerce_order') {
+    $state = $entity->getState();
+    $state_array = $state->toArray();
+    if ($state_array['value'] == 'fulfillment') {
+      $items = $entity->getItems();
+      $stock_zero = false;
+      foreach($items as $key => $value) {
+       $stock = $value->getPurchasedEntity()->get('field_stock')->value;
+       if ($stock <= 0) {
+         $stock_zero = true;
+         return ;
+
+
+       }
+      }
+      if ($stock_zero) {
+        $order_state = $entity->getState();
+        $order_state_transitions = $order_state->getTransitions();
+        if (isset($order_state_transitions['pending'])) {
+          $order_state->applyTransition($order_state_transitions['pending']);
+          $entity->save();
+        }
+      }
+    }
+  }
 }

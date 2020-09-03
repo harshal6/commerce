@@ -9,30 +9,24 @@ custom_changes_dispatcher:
       label: Pending
     fulfillment:
       label: Fulfillment
-    dispatched:
-      label: Dispatched
     completed:
       label: Completed
     canceled:
       label: Canceled
   transitions:
+    pending:
+      label: 'Pending'
+      from: [fulfillment, completed, canceled, draft]
+      to: validation
     place:
       label: 'Place order'
       from: [draft]
-      to:   validation
-    validate:
-      label: 'Confirm order'
-      from: [validation]
       to:   fulfillment
     fulfill:
-      label: 'Fulfill order'
+      label: 'Dispatch'
       from: [fulfillment]
-      to: dispatched
-    dispatched:
-      label: 'Delivered'
-      from: [dispatched]
       to: completed
     cancel:
       label: 'Cancel order'
-      from: [draft, validation, fulfillment,dispatched]
+      from: [draft, fulfillment]
       to:   canceled

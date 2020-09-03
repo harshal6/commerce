@@ -6,6 +6,7 @@ dependencies:
     - commerce_product.commerce_product_type.default
     - field.storage.commerce_product.field_categories
     - field.storage.commerce_product.field_product_images
+    - field.storage.commerce_product_variation.field_stock
     - image.style.medium
     - taxonomy.vocabulary.brand_name
     - taxonomy.vocabulary.categories
@@ -15,9 +16,11 @@ dependencies:
     - commerce
     - commerce_price
     - commerce_product
+    - commerce_stock_field
     - image
     - taxonomy
     - user
+    - views_conditional
 _core:
   default_config_hash: tu0PL5GIB4nIjUfFst2N0WsTO6Ju1WtX7lFr-ya9vAs
 id: commerce_products
@@ -998,7 +1001,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/composition/overview\">Add Composition</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/brand_name/overview\">Add Company</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/types/overview\">Add Package Type</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/product/add\">Add Product</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/supplier/csv\">Export Supplier Products to CSV</a>"
+          content: "<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/composition/overview\">Add Composition</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/brand_name/overview\">Add Company</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/admin/structure/taxonomy/manage/types/overview\">Add Package Type</a>\r\n<a class=\"button button-action button--primary button--small\" href=\"/product/add\">Add Product</a>\r\n"
           plugin_id: text_custom
       footer: {  }
       empty:
@@ -1743,6 +1746,123 @@ display:
           entity_type: commerce_product_variation
           entity_field: list_price
           plugin_id: field
+        field_stock:
+          id: field_stock
+          table: commerce_product_variation__field_stock
+          field: field_stock
+          relationship: variations_target_id
+          group_type: group
+          admin_label: ''
+          label: Stock
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: commerce_stock_level_simple
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        views_conditional_field:
+          id: views_conditional_field
+          table: views_conditional
+          field: views_conditional_field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Stock Status'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          if: field_stock
+          condition: '4'
+          equalto: '1'
+          then: 'Out of Stock'
+          or: 'In Stock [{{ field_stock }}]'
+          strip_tags: 0
+          plugin_id: views_conditional_field
       filters:
         type:
           id: type
@@ -1896,3 +2016,4 @@ display:
       max-age: 0
       tags:
         - 'config:field.storage.commerce_product.field_product_images'
+        - 'config:field.storage.commerce_product_variation.field_stock'

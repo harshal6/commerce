@@ -17,6 +17,9 @@ content: {  }
 hidden:
   adjustments: true
   created: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
   purchased_entity: true
   quantity: true
   total_price: true

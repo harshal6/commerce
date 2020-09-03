@@ -1,0 +1,11 @@
+target: 'system.action.commerce_unpublish_product'
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_unpublish_product
+label: 'Inactivate product'
+type: commerce_product
+plugin: commerce_unpublish_product
+configuration: {  }

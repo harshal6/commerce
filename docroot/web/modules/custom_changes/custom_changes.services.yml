@@ -3,3 +3,7 @@ services:
     class: Drupal\custom_changes\Routing\RouteSubscriber
     tags:
       - { name: event_subscriber }
+#  custom_changes_event_subscriber:
+#    class: '\Drupal\custom_changes\EventSubscriber\OrderCompleteSubscriber'
+#    tags:
+#      - { name: 'event_subscriber' }
